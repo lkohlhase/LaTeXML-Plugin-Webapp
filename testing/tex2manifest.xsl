@@ -29,5 +29,4 @@
     "default_locale": "en"
 }
 </xsl:template>
-<!-- This does nothing so far --> 
 </xsl:stylesheet>
