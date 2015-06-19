@@ -8,7 +8,7 @@
 # |---------------------------------------------------------------------| #
 # | Lukas Kohlhase <l.kohlhase@jacobs-university.de>            #_#     | #
 # | Michael Kohlhase <m.kohlhase@jacobs-university.de>          #_#     | #
-# | http://dlmf.nist.gov/LaTeXML/                              (o o)    | #www
+# | http://dlmf.nist.gov/LaTeXML/                              (o o)    | #
 # \=========================================================ooo==U==ooo=/ #
 
 package LaTeXML::Post::Manifest::FWebapp ;
@@ -31,8 +31,9 @@ sub new {
 
 sub initialize {
   my ($self, $xml) = @_;
-                    
-  return; }1
+  my $current=cwd();
+     
+  return; }
 
 sub process {
   my ($self, @docs) = @_;
@@ -40,9 +41,8 @@ sub process {
   # If needed: generate data from each of the @docs.
   $self->finalize($docs[0]);
   return; }
-go
+
 sub finalize {
   my ($self,$doc) = @_;
 }
-
 1;
