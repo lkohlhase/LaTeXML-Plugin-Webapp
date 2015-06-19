@@ -1,0 +1,6 @@
+#Profile for Firefox webapp generation
+format=Fwebapp
+whatsin=document
+whatsout=archive
+nodefaultresources =
+path = $LATEXMLINPUTS
