@@ -13,11 +13,12 @@
 <xsl:stylesheet
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML"  version="1.0" exclude-result-prefixes="ltx">
 <xsl:output method="text" indent="yes" omit-xml-declaration="yes"/>
+<xsl:param name="content" select="'example.xml'"/>
  <xsl:template match="/">
  {
     "version": "1",
     "name": "<xsl:value-of select="/ltx:document/ltx:title"/>",
-    "launch_path": "/example.html", <!-- TODO pass the filename as a variable and then put this here -->
+    "launch_path": "<xsl:value-of select="$content"/>", <!-- TODO pass the filename as a variable and then put this here -->
     "description": "A LaTeX document that was transformed into a webapp by LaTeXML",
     "icons": {
         "128": "/asdf.png" <!-- TODO make nicer icon -->

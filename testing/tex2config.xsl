@@ -13,6 +13,7 @@
 <xsl:stylesheet
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ltx="http://dlmf.nist.gov/LaTeXML"  version="1.0" exclude-result-prefixes="ltx">
 <xsl:output method="xml" indent="yes"/>
+<xsl:param name="content" select="'example.xml'"/>
 <xsl:template match="/">
 	<widget xmlns       = "http://www.w3.org/ns/widgets">
    		<name>
@@ -25,6 +26,7 @@
    		<author>
    			<xsl:value-of select="//ltx:creator[@role='author']/ltx:personname"/><!-- TODO check if this works for more than just trivial stuff -->
    		</author>
+   		<content src="{$content}"/>
    		<!-- TODO make icon and put in standard URL -->
    		<!-- TODO pass variables and make content -->
    		<!-- TODO check if we need a license, I don't think so -->
