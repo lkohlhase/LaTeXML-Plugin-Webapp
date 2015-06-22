@@ -24,12 +24,20 @@
    			A LaTeX file converted to a widget using LaTeXML and the Webapp plugin
    		</description>
    		<author>
-   			<xsl:value-of select="//ltx:creator[@role='author']/ltx:personname"/><!-- TODO check if this works for more than just trivial stuff -->
+   			<xsl:apply-templates select="//ltx:creator[@role='author']/ltx:personname"/>
    		</author>
    		<content src="{$content}"/>
    		<!-- TODO make icon and put in standard URL -->
-   		<!-- TODO pass variables and make content -->
-   		<!-- TODO check if we need a license, I don't think so -->
   	</widget>
+</xsl:template>
+<xsl:template match="ltx:creator[@role='author']/ltx:personname">
+	<xsl:apply-templates/>
+</xsl:template>
+<xsl:template match="*">
+	<xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="text()">
+	<xsl:copy-of select="."/>
 </xsl:template>
 </xsl:stylesheet>

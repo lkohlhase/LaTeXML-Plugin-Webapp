@@ -18,16 +18,27 @@
  {
     "version": "1",
     "name": "<xsl:value-of select="/ltx:document/ltx:title"/>",
-    "launch_path": "<xsl:value-of select="$content"/>", <!-- TODO pass the filename as a variable and then put this here -->
+    "launch_path": "<xsl:value-of select="$content"/>",
     "description": "A LaTeX document that was transformed into a webapp by LaTeXML",
     "icons": {
         "128": "/asdf.png" <!-- TODO make nicer icon -->
     },
     "developer": {
-        "name": "<xsl:value-of select="//ltx:creator[@role='author']/ltx:personname"/>"
+        "name": "<xsl:apply-templates select="//ltx:creator[@role='author']/ltx:personname"/>"
     },
     "installs_allowed_from": ["*"],
     "default_locale": "en"
 }
+</xsl:template>
+
+<xsl:template match="ltx:creator[@role='author']/ltx:personname">
+	<xsl:apply-templates/>
+</xsl:template>
+<xsl:template match="*">
+	<xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="text()">
+	<xsl:copy-of select="."/>
 </xsl:template>
 </xsl:stylesheet>
