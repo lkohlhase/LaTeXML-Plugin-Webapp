@@ -181,11 +181,17 @@ PERL_ARCHIVE       =
 PERL_ARCHIVE_AFTER = 
 
 
-TO_INST_PM = lib/LaTeXML/Post/Manifest/FWebapp.pm \
-	lib/LaTeXML/resources/XSLT/tex2manifest.xsl
+TO_INST_PM = lib/LaTeXML/Post/Manifest/Fwebapp.pm \
+	lib/LaTeXML/resources/Profiles/firefox.opt \
+	lib/LaTeXML/resources/XSLT/tex2manifest.xsl \
+	lib/LaTeXML/resources/pictures/icon1.png
 
-PM_TO_BLIB = lib/LaTeXML/Post/Manifest/FWebapp.pm \
-	blib/lib/LaTeXML/Post/Manifest/FWebapp.pm \
+PM_TO_BLIB = lib/LaTeXML/Post/Manifest/Fwebapp.pm \
+	blib/lib/LaTeXML/Post/Manifest/Fwebapp.pm \
+	lib/LaTeXML/resources/Profiles/firefox.opt \
+	blib/lib/LaTeXML/resources/Profiles/firefox.opt \
+	lib/LaTeXML/resources/pictures/icon1.png \
+	blib/lib/LaTeXML/resources/pictures/icon1.png \
 	lib/LaTeXML/resources/XSLT/tex2manifest.xsl \
 	blib/lib/LaTeXML/resources/XSLT/tex2manifest.xsl
 
@@ -806,7 +812,9 @@ ppd :
 
 pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
-	  lib/LaTeXML/Post/Manifest/FWebapp.pm blib/lib/LaTeXML/Post/Manifest/FWebapp.pm \
+	  lib/LaTeXML/Post/Manifest/Fwebapp.pm blib/lib/LaTeXML/Post/Manifest/Fwebapp.pm \
+	  lib/LaTeXML/resources/Profiles/firefox.opt blib/lib/LaTeXML/resources/Profiles/firefox.opt \
+	  lib/LaTeXML/resources/pictures/icon1.png blib/lib/LaTeXML/resources/pictures/icon1.png \
 	  lib/LaTeXML/resources/XSLT/tex2manifest.xsl blib/lib/LaTeXML/resources/XSLT/tex2manifest.xsl 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
